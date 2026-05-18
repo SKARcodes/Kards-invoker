@@ -3,7 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using JetBrains.Annotations;
 
-public class NewEmptyCSharpScript : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
     public static MonoBehaviour Instance;
 
