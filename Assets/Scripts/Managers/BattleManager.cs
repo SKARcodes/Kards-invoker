@@ -29,7 +29,14 @@ public class BattleManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     private void Start()
     {
@@ -90,6 +97,12 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Fase de combate (10seg)");
 
         Invoke(nameof(EndCombatPhase), 10f);
+    }
+
+    private IEnumerator CombatRoutine()
+    {
+        yield return new WaitForSeconds(10f);
+        EndCombatPhase();
     }
 
     public void EndCombatPhase()
